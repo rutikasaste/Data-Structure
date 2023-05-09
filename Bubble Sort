@@ -1,0 +1,50 @@
+/*
+Bubble Sort:-
+Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in the wrong order.
+ This algorithm is not suitable for large data sets as its average and worst-case time complexity is quite high.
+
+ Time complexity :- O(N^2)
+*/ \
+#include<stdio.h>
+void swap(int *x, int *y)
+{
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+void bubbleSort(int arr[], int size)
+{
+    for (int i = 0; i < size - 1; i++)
+    {
+        for (int j = 0; j < size - i - 1; j++) // Condition of J is size-i-1
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                swap(&arr[j], &arr[j + 1]);
+            }
+        }
+    }
+}
+void printarray(int arr[], int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        printf("%d", arr[i]);
+        printf("\n");
+    }
+}
+void main()
+{
+    int size;
+    printf("Enter the size of an array:\n");
+    scanf("%d", &size);
+    int arr[size];
+    printf("Enter the elements :\n");
+    for (int k = 0; k < size; k++)
+    {
+        scanf("%d", &arr[k]);
+    }
+    bubbleSort(arr, size);
+    printf("Sorted array is \n:");
+    printarray(arr, size);
+}
